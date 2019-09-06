@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Candidate Portal</title>
+  <link href="bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="style.css" rel="stylesheet" media="screen">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <script data-require="angular.js@1.0.x" src="http://code.angularjs.org/1.0.7/angular.min.js"
+    data-semver="1.0.7"></script>
+  <script src="jsonload.js"></script>
+
+</head>
+<body>
+  <div ng-controller="myCtrl" class="container-fluid">
+    <br />
+    <div align="center">
+      <h1><b>Candidate Portal</b></h1>
+    </div>
+    <title>Search Maginfier</title>
+    <div class="text-right" align="center">
+      <input type="text" ng-model="search" placeholder="Search...">
+    </div>
+    </p>
+    <table class="table table-striped" id="myTable">
+
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)">Candidate Number</th>
+          <th onclick="sortTable(1)">Name</th>
+          <th onclick="sortTable(2)">Department</th>
+          <th onclick="sortTable(3)">Contact Number</th>
+          <th onclick="sortTable(4)">Email</th>
+          <th onclick="sortTable(5)">Skill List</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="resource in employees | filter:search">
+          <td>{{ resource.candidate_id }}</td>
+          <td>{{ resource.name }}</td>
+          <td>{{ resource.department}}</td>
+          <td>{{ resource.contact }}</td>
+          <td>{{ resource.email }}</td>
+          <td>{{ resource.skills }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</body>
+</html>
